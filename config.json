@@ -1,0 +1,80 @@
+{
+  "servers": [
+    {
+      "id": "Sv1",
+      "enabled": true
+    },
+    {
+      "id": "Sv2",
+      "enabled": true
+    },
+    {
+      "id": "Sv3",
+      "enabled": true
+    },
+    {
+      "id": "Sv4",
+      "enabled": true
+    },
+    {
+      "id": "Sv5",
+      "enabled": true
+    },
+    {
+      "id": "Sv6",
+      "enabled": true
+    },
+    {
+      "id": "Sv7",
+      "enabled": true
+    },
+    {
+      "id": "Sv8",
+      "enabled": true
+    },
+    {
+      "id": "Sv9",
+      "enabled": true
+    },
+    {
+      "id": "Sv10",
+      "enabled": true
+    },
+    {
+      "id": "Sv11",
+      "enabled": true
+    },
+    {
+      "id": "Sv12",
+      "enabled": true
+    },
+    {
+      "id": "Sv14",
+      "enabled": true
+    },
+    {
+      "id": "Sv15",
+      "enabled": true
+    },
+    {
+      "id": "Sv16",
+      "enabled": true
+    },
+    {
+      "id": "Sv17",
+      "enabled": true
+    },
+    {
+      "id": "Sv18",
+      "enabled": true
+    },
+    {
+      "id": "Sv19",
+      "enabled": true
+    },
+    {
+      "id": "Sv20",
+      "enabled": false
+    }
+  ]
+}

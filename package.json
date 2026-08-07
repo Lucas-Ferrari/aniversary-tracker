@@ -1,0 +1,31 @@
+{
+  "name": "megamu-boss-tracker",
+  "version": "1.0.0",
+  "description": "Locally-hosted dashboard that tracks whether the MEGAMU birthday boss has been killed on each tracked server during the current event window.",
+  "main": "server/index.js",
+  "bin": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "build:win": "pkg . --targets node22.23.2-win-x64 --output dist/megamu-boss-tracker-win.exe",
+    "build:mac": "pkg . --targets node22.23.2-macos-x64 --output dist/megamu-boss-tracker-mac",
+    "build:linux": "pkg . --targets node22.23.2-linux-x64 --output dist/megamu-boss-tracker-linux",
+    "build:all": "npm run build:win && npm run build:mac && npm run build:linux"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.22.0"
+  },
+  "pkg": {
+    "assets": [
+      "public/**/*"
+    ],
+    "outputPath": "dist"
+  }
+}
