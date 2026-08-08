@@ -11,67 +11,165 @@
 </head>
 <body>
 
-<div id="error-banner" class="error-banner" hidden>
-  <span class="material-symbols-rounded" aria-hidden="true">cloud_off</span>
-  <span id="error-banner-text">Data source unavailable.</span>
+<div class="app-shell">
+  <nav id="side-nav" class="side-nav" aria-label="Primary navigation">
+    <div class="side-nav__brand">
+      <span class="side-nav__crest" aria-hidden="true">🎂</span>
+      <span class="side-nav__brand-text">MEGAMU</span>
+    </div>
+
+    <ul class="side-nav__sections">
+      <li class="side-nav__section">
+        <button class="side-nav__section-toggle" aria-expanded="true" aria-controls="side-nav-section-events">
+          <span class="material-symbols-rounded" aria-hidden="true">event</span>
+          <span class="side-nav__section-label">Events</span>
+          <span class="material-symbols-rounded side-nav__chevron" aria-hidden="true">expand_more</span>
+        </button>
+        <ul id="side-nav-section-events" class="side-nav__submenu">
+          <li>
+            <button type="button" class="side-nav__item side-nav__item--active" data-view="aniversary-tracker">
+              Aniversary Tracker
+            </button>
+          </li>
+          <li>
+            <button type="button" class="side-nav__item" data-view="medusa">
+              Medusa
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="app-shell__content">
+    <header class="app-bar">
+      <div class="app-bar__title">
+        <button id="nav-toggle-btn" class="icon-btn nav-toggle-btn" aria-label="Toggle navigation" aria-controls="side-nav" aria-expanded="false">
+          <span class="material-symbols-rounded" aria-hidden="true">menu</span>
+        </button>
+        <span class="app-bar__crest" aria-hidden="true">🎂</span>
+        <div>
+          <h1>Birthday Boss Tracker</h1>
+          <p class="app-bar__subtitle">en.megamu.net · boss-log</p>
+        </div>
+      </div>
+
+      <div class="app-bar__actions">
+        <button id="settings-btn" class="icon-btn" aria-label="Server settings" title="Server settings">
+          <span class="material-symbols-rounded" aria-hidden="true">tune</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div id="view-aniversary-tracker" class="view" data-event-id="aniversary">
+        <div class="view__header">
+          <h2 class="view__title">Aniversary Tracker</h2>
+          <div class="view__controls">
+            <div class="poll-toggle">
+              <span class="poll-toggle__label" data-role="poll-toggle-label">Polling on</span>
+              <button class="switch" data-role="poll-toggle" role="switch" aria-checked="true" aria-label="Toggle polling">
+                <span class="switch__thumb"></span>
+              </button>
+            </div>
+            <button class="icon-btn" data-role="force-fetch-btn" aria-label="Force fetch now" title="Force fetch now">
+              <span class="material-symbols-rounded" aria-hidden="true">sync</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="error-banner" data-role="error-banner" hidden>
+          <span class="material-symbols-rounded" aria-hidden="true">cloud_off</span>
+          <span data-role="error-banner-text">Data source unavailable.</span>
+        </div>
+
+        <section class="event-panel">
+          <div class="event-panel__ring-wrap">
+            <svg class="event-panel__ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="event-panel__ring-track" cx="60" cy="60" r="52" />
+              <circle data-role="ring-progress" class="event-panel__ring-progress" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="event-panel__ring-center">
+              <span data-role="ring-mode" class="event-panel__mode">Next event in</span>
+              <span data-role="ring-time" class="event-panel__time">--:--</span>
+            </div>
+          </div>
+
+          <div class="event-panel__meta">
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Killed</span>
+              <span data-role="stat-killed" class="event-panel__stat-value">0</span>
+            </div>
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Pending</span>
+              <span data-role="stat-pending" class="event-panel__stat-value">0</span>
+            </div>
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Tracked servers</span>
+              <span data-role="stat-total" class="event-panel__stat-value">0</span>
+            </div>
+          </div>
+        </section>
+
+        <section data-role="server-grid" class="server-grid" aria-label="Server status grid"></section>
+      </div>
+
+      <div id="view-medusa" class="view" data-event-id="medusa" hidden>
+        <div class="view__header">
+          <h2 class="view__title">Medusa</h2>
+          <div class="view__controls">
+            <div class="poll-toggle">
+              <span class="poll-toggle__label" data-role="poll-toggle-label">Polling on</span>
+              <button class="switch" data-role="poll-toggle" role="switch" aria-checked="true" aria-label="Toggle polling">
+                <span class="switch__thumb"></span>
+              </button>
+            </div>
+            <button class="icon-btn" data-role="force-fetch-btn" aria-label="Force fetch now" title="Force fetch now">
+              <span class="material-symbols-rounded" aria-hidden="true">sync</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="error-banner" data-role="error-banner" hidden>
+          <span class="material-symbols-rounded" aria-hidden="true">cloud_off</span>
+          <span data-role="error-banner-text">Data source unavailable.</span>
+        </div>
+
+        <section class="event-panel">
+          <div class="event-panel__ring-wrap">
+            <svg class="event-panel__ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="event-panel__ring-track" cx="60" cy="60" r="52" />
+              <circle data-role="ring-progress" class="event-panel__ring-progress" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="event-panel__ring-center">
+              <span data-role="ring-mode" class="event-panel__mode">Next event in</span>
+              <span data-role="ring-time" class="event-panel__time">--:--</span>
+            </div>
+          </div>
+
+          <div class="event-panel__meta">
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Killed</span>
+              <span data-role="stat-killed" class="event-panel__stat-value">0</span>
+            </div>
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Pending</span>
+              <span data-role="stat-pending" class="event-panel__stat-value">0</span>
+            </div>
+            <div class="event-panel__stat">
+              <span class="event-panel__stat-label">Tracked servers</span>
+              <span data-role="stat-total" class="event-panel__stat-value">0</span>
+            </div>
+          </div>
+        </section>
+
+        <section data-role="server-grid" class="server-grid" aria-label="Server status grid"></section>
+      </div>
+    </main>
+  </div>
 </div>
 
-<header class="app-bar">
-  <div class="app-bar__title">
-    <span class="app-bar__crest" aria-hidden="true">🎂</span>
-    <div>
-      <h1>Birthday Boss Tracker</h1>
-      <p class="app-bar__subtitle">en.megamu.net · boss-log</p>
-    </div>
-  </div>
-
-  <div class="app-bar__actions">
-    <div class="poll-toggle">
-      <span class="poll-toggle__label" id="poll-toggle-label">Polling on</span>
-      <button id="poll-toggle" class="switch" role="switch" aria-checked="true" aria-labelledby="poll-toggle-label">
-        <span class="switch__thumb"></span>
-      </button>
-    </div>
-    <button id="force-fetch-btn" class="icon-btn" aria-label="Force fetch now" title="Force fetch now">
-      <span class="material-symbols-rounded" aria-hidden="true">sync</span>
-    </button>
-    <button id="settings-btn" class="icon-btn" aria-label="Server settings" title="Server settings">
-      <span class="material-symbols-rounded" aria-hidden="true">tune</span>
-    </button>
-  </div>
-</header>
-
-<main>
-  <section class="event-panel">
-    <div class="event-panel__ring-wrap">
-      <svg class="event-panel__ring" viewBox="0 0 120 120" aria-hidden="true">
-        <circle class="event-panel__ring-track" cx="60" cy="60" r="52" />
-        <circle id="event-ring-progress" class="event-panel__ring-progress" cx="60" cy="60" r="52" />
-      </svg>
-      <div class="event-panel__ring-center">
-        <span id="event-panel__mode" class="event-panel__mode">Next event in</span>
-        <span id="event-panel__time" class="event-panel__time">--:--</span>
-      </div>
-    </div>
-
-    <div class="event-panel__meta">
-      <div class="event-panel__stat">
-        <span class="event-panel__stat-label">Killed</span>
-        <span id="stat-killed" class="event-panel__stat-value">0</span>
-      </div>
-      <div class="event-panel__stat">
-        <span class="event-panel__stat-label">Pending</span>
-        <span id="stat-pending" class="event-panel__stat-value">0</span>
-      </div>
-      <div class="event-panel__stat">
-        <span class="event-panel__stat-label">Tracked servers</span>
-        <span id="stat-total" class="event-panel__stat-value">0</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="server-grid" class="server-grid" aria-label="Server status grid"></section>
-</main>
+<div id="side-nav-scrim" class="side-nav-scrim" hidden></div>
 
 <div id="settings-overlay" class="overlay" hidden>
   <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="settings-title">

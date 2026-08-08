@@ -13,7 +13,7 @@
     "build:all": "npm run build:win && npm run build:mac && npm run build:linux"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
