@@ -13,10 +13,17 @@ const fs = require('fs');
 const path = require('path');
 const { EXCLUDED_SERVER } = require('./constants');
 
-// Under pkg, __dirname resolves inside the packaged executable's
-// read-only virtual filesystem, so config.json must live next to the
-// .exe instead (process.execPath) rather than next to this file.
-const CONFIG_PATH = process.pkg
+// On Railway, config.json must live on the mounted volume (anything
+// written elsewhere is wiped on every redeploy) — Railway exposes the
+// volume's mount path via RAILWAY_VOLUME_MOUNT_PATH at runtime.
+//
+// Under pkg (no volume involved), __dirname resolves inside the packaged
+// executable's read-only virtual filesystem, so config.json must live
+// next to the .exe instead (process.execPath) rather than next to this
+// file.
+const CONFIG_PATH = process.env.RAILWAY_VOLUME_MOUNT_PATH
+  ? path.join(process.env.RAILWAY_VOLUME_MOUNT_PATH, 'config.json')
+  : process.pkg
   ? path.join(path.dirname(process.execPath), 'config.json')
   : path.join(__dirname, '..', 'config.json');
 
